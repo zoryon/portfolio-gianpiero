@@ -121,7 +121,8 @@ export default function Home() {
                 className="max-w-[450px] text-xs mt-2 mb-14 tracking-tight 
                 leading-[1.4rem] font-bold"
               >
-                &quot;Lascia che il tuo giorno speciale diventi un'opera d'arte senza tempo.{" "}
+                &quot;Lascia che il tuo giorno speciale diventi un&apos;
+                opera d&apos;arte senza tempo.{" "}
                 Fotografia e video per matrimoni che raccontano emozioni,{" "}
                 dettagli e momenti indimenticabili. Prenota ora il tuo servizio esclusivo.&quot;
               </p>
