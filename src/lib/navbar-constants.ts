@@ -4,8 +4,12 @@ export const NAVBAR_LINKS = [
         path: "/",
     },
     {
-        label: "portfolio",
-        path: "/portfolio",
+        label: "photography",
+        path: "/photography",
+    },
+    {
+        label: "videography",
+        path: "/videography",
     },
     {
         label: "about",

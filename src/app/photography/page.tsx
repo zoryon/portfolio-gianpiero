@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
-const PortfolioPage = () => {
+const PhotographyPage = () => {
     return (
         <section
             className="columns-1 sm:columns-2 lg:columns-4
@@ -88,4 +88,4 @@ const PortfolioItems = () => {
 };
 
 
-export default PortfolioPage
+export default PhotographyPage
