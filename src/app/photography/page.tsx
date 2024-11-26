@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
+import Gallery from "@/components/Gallery"
 
 const PhotographyPage = () => {
     return (
@@ -13,6 +14,8 @@ const PhotographyPage = () => {
             overflow-x-hidden gap-2 px-1 sm:px-5 space-y-2"
         >
             <PortfolioItems />
+
+            <Gallery />
         </section>
     )
 }
@@ -41,7 +44,6 @@ const PortfolioItems = () => {
                     onHoverEnd={() => setHoveredIndex(null)}
                     onClick={() => setHoveredIndex(isHovered ? null : i)}
                 >
-                    {/* Immagine con animazione */}
                     <motion.div
                         animate={{ scale: isHovered ? 1.1 : 1 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
