@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import DesktopNavbar from "./DesktopNavbar";
+import { LeftDesktopNavbar, RightDesktopNavbar } from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import Link from "next/link";
 
@@ -9,8 +9,11 @@ const Navbar = () => {
     return (
         <nav 
             className="w-screen h-[90px] fixed left-0 top-0 bg-background px-8 lg:px-20
-            flex justify-between items-center z-[99]"
+            flex justify-between lg:justify-center items-center gap-20 z-[99]"
         >
+            {/* left desktop navbar */}
+            <LeftDesktopNavbar />
+
             {/* logo */}
             <Link href="/">
                 <Image
@@ -23,8 +26,8 @@ const Navbar = () => {
                 />
             </Link>
 
-            {/* desktop navbar */}
-            <DesktopNavbar />
+            {/* right desktop navbar */}
+            <RightDesktopNavbar />
 
             {/* mobile and tablet navbar */}
             <MobileNavbar />

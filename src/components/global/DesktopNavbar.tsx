@@ -7,20 +7,36 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const DesktopNavbar = () => {
+export const LeftDesktopNavbar = () => {
     return (
-        <ul className="hidden lg:flex justify-center items-center gap-2">
-            <NavbarLinks />
+        <ul className="hidden lg:flex justify-center items-center gap-5">
+            <NavbarLinks position="left" />
         </ul>
     )
 }
 
-const NavbarLinks = () => {
+export const RightDesktopNavbar = () => {
+    return (
+        <ul className="hidden lg:flex justify-center items-center gap-5">
+            <NavbarLinks position="right" />
+        </ul>
+    )
+}
+
+interface NavbarLinksProps {
+    position: "left" | "right";
+}
+const NavbarLinks = ({ position }: NavbarLinksProps) => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const pathname = usePathname()
-    
+
+    const leftLinks = NAVBAR_LINKS.slice(0, 3);
+    const rightLinks = NAVBAR_LINKS.slice(3);
+
+    const linksToRender = position === "left" ? leftLinks : rightLinks
+
     return (
-        NAVBAR_LINKS.map((link, i) => {
+        linksToRender.map((link, i) => {
             const isActive = link.path === pathname
             const shouldAnimate = i === hoveredIndex
 
@@ -53,7 +69,7 @@ const NavbarLinks = () => {
                             }}
                             transition={{
                                 opacity: { duration: 1.5, ease: "easeInOut" },
-                                width: { duration: 0.3, ease: "easeInOut" }, 
+                                width: { duration: 0.3, ease: "easeInOut" },
                             }}
                         />
                     </Link>
@@ -62,5 +78,3 @@ const NavbarLinks = () => {
         })
     );
 };
-
-export default DesktopNavbar
