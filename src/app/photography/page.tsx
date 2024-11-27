@@ -5,7 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import Gallery from "@/components/Gallery"
+import { useGalleryContext } from "@/contexts/gallery.context"
 
 const PhotographyPage = () => {
     return (
@@ -14,13 +14,13 @@ const PhotographyPage = () => {
             overflow-x-hidden gap-2 px-1 sm:px-5 space-y-2"
         >
             <PortfolioItems />
-
-            <Gallery />
         </section>
     )
 }
 
 const PortfolioItems = () => {
+    const { enableGallery } = useGalleryContext()
+
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -60,7 +60,7 @@ const PortfolioItems = () => {
                         />
                     </motion.div>
 
-                    {/* Bottone in alto a destra */}
+                    {/* top right search button */}
                     <motion.div
                         animate={{ 
                             opacity: isHovered ? 0.8 : 0,
@@ -70,11 +70,12 @@ const PortfolioItems = () => {
                         className="absolute top-5 right-5 bg-foreground rounded-full size-10 
                         flex justify-center items-center text-background text-xs
                         cursor-pointer"
+                        onClick={() => enableGallery({ src: image.src })}
                     >
                         <i className="fa-regular fa-magnifying-glass"></i>
                     </motion.div>
 
-                    {/* Effetto ombra in basso */}
+                    {/* bottom shadow effect */}
                     <motion.div
                         className="absolute inset-0 pointer-events-none"
                         initial={{ opacity: 0 }}

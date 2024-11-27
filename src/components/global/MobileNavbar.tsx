@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 
 const MobileNavbar = () => {
     const [isShowing, setIsShowing] = useState<boolean>(false);
@@ -37,7 +37,10 @@ const MobileNavbar = () => {
                         }}
                     >
                         <ul className="relative z-50">
-                            <NavbarLinks />
+                            <NavbarLinks 
+                                closeState={isShowing}
+                                closeMenuFn={setIsShowing}
+                            />
                         </ul>
                     </motion.div>
                 )}
@@ -46,7 +49,13 @@ const MobileNavbar = () => {
     )
 }
 
-const NavbarLinks = () => {
+const NavbarLinks = ({
+    closeState,
+    closeMenuFn,
+}: {
+    closeState: boolean,
+    closeMenuFn: Dispatch<SetStateAction<boolean>>
+}) => {
     const pathname = usePathname();
 
     return (
@@ -66,6 +75,7 @@ const NavbarLinks = () => {
                             items-center px-3 hover:text-subtle duration-200`,
                             isActive ? "text-subtle" : "text-white"
                         )}
+                        onClick={() => closeMenuFn(!closeState)}
                     >
                         {link.label}
                     </Link>
