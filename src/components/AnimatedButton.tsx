@@ -14,9 +14,9 @@ const AnimatedButton = ({
     const [isHover, setIsHover] = useState<boolean>(false)
 
     const buttonVariants = {
-        initial: { width: "150px" },
+        initial: { width: "190px" },
         hover: {
-            width: "170px",
+            width: "210px",
             transition: {
                 duration: 0.3,
             },
@@ -38,7 +38,7 @@ const AnimatedButton = ({
     return (
         <Link href={`${path}`}>
             <motion.div
-                className="w-[150px] h-[45px] flex justify-end items-center 
+                className="w-[190px] h-[45px] flex justify-end items-center 
                 cursor-pointer bg-secondary smallest-title relative text-background
                 px-3 hover:opacity-90"
                 onMouseEnter={() => setIsHover(true)}

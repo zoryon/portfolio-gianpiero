@@ -13,7 +13,7 @@ const Title = ({ title }: { title: string }) => {
         <div
             className={cn(
                 `font-extrabold 
-                text-[3.5rem] md:text-[5rem] mt-3`,
+                text-[3.5rem] md:text-[5.5rem] mt-3 -mb-4`,
                 alexBrush.className
             )}
             >

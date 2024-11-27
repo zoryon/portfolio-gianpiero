@@ -16,11 +16,11 @@ export const NAVBAR_LINKS = [
         path: "/about",
     },
     {
-        label: "news",
-        path: "/news",
+        label: "blog",
+        path: "/blog",
     },
     {
-        label: "contacts",
-        path: "/contacts",
+        label: "contatti",
+        path: "/contatti",
     },
 ] as const;

@@ -19,7 +19,8 @@ const LoaderLine = ({ trigger, onComplete }: LoaderLineProps) => {
 
     return (
         <motion.div
-            className="relative w-[150px] h-[1px] bg-gray-300 overflow-hidden -z-10"
+            className="hidden md:block relative w-[150px] h-[1px]
+            bg-gray-300 overflow-hidden -z-10"
         >
             <motion.div
                 className="absolute top-0 left-0 h-full bg-secondary"

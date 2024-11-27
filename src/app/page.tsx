@@ -50,14 +50,14 @@ export default function Home() {
         </div>
 
         <div
-          className="w-[85%] h-[55%] lg:h-[78%]
+          className="w-[85%] h-[55%] md:h-[70%] lg:h-[78%]
           absolute left-[4%] md:left-[9%] top-[85px] md:top-[95px]"
         >
           <div className="relative w-full h-full">
             {/* top left - follow section */}
             <section
               className="absolute left-0 top-0 tracking-widest
-              flex flex-col gap-5 cursor-pointer"
+              hidden md:flex flex-col gap-5 cursor-pointer"
               onMouseEnter={() => {
                 setShouldAnimateOthers(true)
                 if (!isAnimating) {
@@ -113,22 +113,21 @@ export default function Home() {
             </section>
 
             {/* bottom left - title and paragraph */}
-            <section className="absolute left-0 bottom-0">
+            <section className="absolute left-0 bottom-2 sm:bottom-8">
               <Line />
               <div className="small-title"></div>
               <Title title={"weddings"} />
               <p
-                className="max-w-[450px] text-xs mt-2 mb-14 tracking-tight 
+                className="max-w-[400px] text-xs mt-2 mb-10 sm:mb-16 tracking-tight 
                 leading-[1.4rem] font-bold"
               >
                 &quot;Lascia che il tuo giorno speciale diventi un&apos;
                 opera d&apos;arte senza tempo.{" "}
-                Fotografia e video per matrimoni che raccontano emozioni,{" "}
-                dettagli e momenti indimenticabili. Prenota ora il tuo servizio esclusivo.&quot;
+                Fotografia e video per matrimoni che raccontano emozioni.
               </p>
               <AnimatedButton
-                text="my portfolio"
-                path="/portfolio"
+                text="richiedi preventivo"
+                path="/contatti"
               />
             </section>
           </div>
