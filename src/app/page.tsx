@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import LoaderLine from "@/components/LoaderLine";
 import Link from "next/link";
-import Line from "@/components/Line";
 import Title from "@/components/Title";
 import AnimatedButton from "@/components/AnimatedButton";
 
