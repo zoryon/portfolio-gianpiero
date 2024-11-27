@@ -45,7 +45,8 @@ export default function Home() {
             src="/images/bg/home-bg.jpg"
             width={5000}
             height={5000}
-            className="w-full h-full object-cover select-none filter-whitish"
+            className="w-full h-full object-cover select-none
+            filter-whitish object-right pointer-events-none"
           />
         </div>
 
@@ -80,28 +81,22 @@ export default function Home() {
                   variants={arrowVariants}
                   transition={{ duration: 0.3 }}
                 />
-              </div>
-              {/* brand icons */}
-              <motion.div
-                className="flex items-center gap-5 text-sm"
-                initial="initial"
-                animate={shouldAnimateOthers ? "visible" : "initial"}
-                variants={iconVariants}
-              >
-                <Link
-                  href="#"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-facebook-f" />
-                </Link>
 
-                <Link
-                  href="https://www.instagram.com/gianproduction_/"
-                  target="_blank"
+                {/* brand icons */}
+                <motion.div
+                  className="flex items-center gap-5 text-sm ml-2"
+                  initial="initial"
+                  animate={shouldAnimateOthers ? "visible" : "initial"}
+                  variants={iconVariants}
                 >
-                  <i className="fa-brands fa-instagram" />
-                </Link>
-              </motion.div>
+                  <Link
+                    href="https://www.instagram.com/gianproduction_/"
+                    target="_blank"
+                  >
+                    <i className="fa-brands fa-instagram" />
+                  </Link>
+                </motion.div>
+              </div>
             </section>
 
             {/* top right - loader line */}
@@ -113,8 +108,7 @@ export default function Home() {
             </section>
 
             {/* bottom left - title and paragraph */}
-            <section className="absolute left-0 bottom-2 sm:bottom-8">
-              <Line />
+            <section className="absolute left-0 bottom-2 sm:bottom-14">
               <div className="small-title"></div>
               <Title title={"weddings"} />
               <p
