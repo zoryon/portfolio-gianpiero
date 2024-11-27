@@ -11,11 +11,11 @@ import AnimatedButton from "@/components/AnimatedButton";
 export default function Home() {
   const [shouldAnimateLine, setShouldAnimateLine] = useState<boolean>(false)
   const [shouldAnimateOthers, setShouldAnimateOthers] = useState<boolean>(false)
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false)
 
   const handleAnimationComplete = () => {
     setIsAnimating(false)
-  };
+  }
 
   const arrowVariants = {
     initial: { x: 0, },

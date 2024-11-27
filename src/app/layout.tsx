@@ -20,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Eternal Weddings",
-  description: "Home Page",
+  description: "Fotografie & Video per Matrimoni a Firenze.",
 };
 
 export default function RootLayout({
