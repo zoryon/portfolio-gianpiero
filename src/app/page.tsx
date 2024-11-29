@@ -116,7 +116,7 @@ export default function Home() {
               >
                 &quot;Lascia che il tuo giorno speciale diventi un&apos;
                 opera d&apos;arte senza tempo.{" "}
-                Fotografia e video per matrimoni che raccontano emozioni.
+                Fotografia e video per matrimoni che raccontano emozioni&quot;
               </p>
               <AnimatedButton
                 text="richiedi preventivo"
