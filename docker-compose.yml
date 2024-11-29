@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/app # Bind the current directory to /app in the container
+      - /app/node_modules # Prevent node_modules from being overwritten
+    ports:
+      - "3000:3000" # Expose the app on port 3000
+    environment:
+      NODE_ENV: development
+    command: npm run dev
