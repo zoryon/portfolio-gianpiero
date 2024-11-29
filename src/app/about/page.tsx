@@ -75,10 +75,10 @@ const HistorySection = () => {
                 ma è solo negli ultimi due anni che ho deciso di farne una professione.
                 Durante questo percorso, ho investito molto tempo nel migliorare le mie abilità fotografiche.
                 Ho seguito corsi specializzati in studio, concentrandomi sulla gestione della luce e dei flash.
-                Questa formazione mi ha permesso di creare scatti unici e memorabili, catturando l'essenza dei soggetti fotografati.
+                Questa formazione mi ha permesso di creare scatti unici e memorabili, catturando l&apos;essenza dei soggetti fotografati.
                 Inoltre, ho dedicato molto tempo a imparare i software più famosi del settore, come Illustrator, Photoshop, Lightroom e Capture One.
-                Questi strumenti sono essenziali per trasformare le mie immagini in opere d'arte digitali, dando vita alla mia visione creativa.
-                Sono molto orgoglioso del mio percorso finora e non vedo l'ora di condividere il mio lavoro con voi.
+                Questi strumenti sono essenziali per trasformare le mie immagini in opere d&apos;arte digitali, dando vita alla mia visione creativa.
+                Sono molto orgoglioso del mio percorso finora e non vedo l&apos;ora di condividere il mio lavoro con voi.
             </p>
 
             {/* stats container */}
