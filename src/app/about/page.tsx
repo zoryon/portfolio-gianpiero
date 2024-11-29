@@ -115,13 +115,11 @@ const HistorySection = () => {
                 </div>
             </div>
 
-            <div className="w-full flex justify-center sm:justify-start">
-                <AnimatedButton 
-                    path="/photography"
-                    text="photography"
-                    width={160}
-                />
-            </div>
+            <AnimatedButton 
+                path="/photography"
+                text="photography"
+                width={160}
+            />
         </AboutSection>
     )
 }
