@@ -121,6 +121,7 @@ export default function Home() {
               <AnimatedButton
                 text="richiedi preventivo"
                 path="/contatti"
+                width={190}
               />
             </section>
           </div>

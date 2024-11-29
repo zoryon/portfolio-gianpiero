@@ -13,6 +13,7 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@vercel/speed-insights": "^1.1.0",
     "class-variance-authority": "^0.7.0",

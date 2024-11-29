@@ -7,16 +7,21 @@ import Link from "next/link";
 const AnimatedButton = ({
     text,
     path,
+    width,
 }: {
     text: string,
     path: string,
+    width: number,
 }) => {
     const [isHover, setIsHover] = useState<boolean>(false)
 
+    const strWidth = width.toString() + "px"
+    const strHoverWidth = (width + 20).toString() + "px"
+
     const buttonVariants = {
-        initial: { width: "190px" },
+        initial: { width: strWidth },
         hover: {
-            width: "210px",
+            width: strHoverWidth,
             transition: {
                 duration: 0.3,
             },
@@ -38,7 +43,7 @@ const AnimatedButton = ({
     return (
         <Link href={`${path}`}>
             <motion.div
-                className="w-[190px] h-[45px] flex justify-end items-center 
+                className="w-fit h-[45px] flex justify-end items-center 
                 cursor-pointer bg-secondary smallest-title relative text-background
                 px-3 hover:opacity-90"
                 onMouseEnter={() => setIsHover(true)}
