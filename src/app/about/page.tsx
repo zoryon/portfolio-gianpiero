@@ -83,8 +83,8 @@ const HistorySection = () => {
 
             {/* stats container */}
             <div
-                className="flex flex-wrap justify-evenly sm:justify-start
-                items-center gap-x-12 xl:gap-x-24 gap-y-6 mb-8 sm:mb-16"
+                className="flex flex-wrap justify-start items-center
+                gap-x-12 xl:gap-x-24 gap-y-6 mb-8 sm:mb-16"
             >
                 {/* work stats */}
                 <div className="flex flex-col justify-center items-start gap-3">
