@@ -10,4 +10,4 @@ export const PORTFOLIO_IMAGES = [
         src: `${MATRIMONI_IMAGES.src}${MATRIMONI_IMAGES.filter}-${index + 1}${MATRIMONI_IMAGES.extension}`,
         filter: MATRIMONI_IMAGES.filter,
     })),
-]
+];

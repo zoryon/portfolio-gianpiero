@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react";
 
 const MobileNavbar = () => {
     const [isShowing, setIsShowing] = useState<boolean>(false);
@@ -80,9 +80,9 @@ const NavbarLinks = ({
                         {link.label}
                     </Link>
                 </li>
-            )
+            );
         })
     );
 };
 
-export default MobileNavbar
+export default MobileNavbar;

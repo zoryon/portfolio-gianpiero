@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils"
-import { Alex_Brush } from "next/font/google"
+import { cn } from "@/lib/utils";
+import { Alex_Brush } from "next/font/google";
 
 export const alexBrush = Alex_Brush({
     weight: '400',
     subsets: ['latin'],
-})
+});
 
 const Title = ({ title }: { title: string }) => {
-    const parts: string[] = [title[0], title.slice(1)]
+    const parts: string[] = [title[0], title.slice(1)];
 
     return (
         <div
@@ -20,7 +20,7 @@ const Title = ({ title }: { title: string }) => {
             <span className="uppercase">{parts[0]}</span>
             <span className="lowercase">{parts[1]}</span>
         </div>
-    )
+    );
 }
 
-export default Title
+export default Title;

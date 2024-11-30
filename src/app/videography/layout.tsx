@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Eternal - Wedding Videography",
     description: "Video matrimoni, Firenze.",
-};
+}
 
 const VideographyPage = ({
     children,
@@ -16,4 +16,5 @@ const VideographyPage = ({
         </>
     )
 }
-export default VideographyPage
+
+export default VideographyPage;

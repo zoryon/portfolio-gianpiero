@@ -9,12 +9,12 @@ import Title from "@/components/Title";
 import AnimatedButton from "@/components/AnimatedButton";
 
 export default function Home() {
-  const [shouldAnimateLine, setShouldAnimateLine] = useState<boolean>(false)
-  const [shouldAnimateOthers, setShouldAnimateOthers] = useState<boolean>(false)
-  const [isAnimating, setIsAnimating] = useState<boolean>(false)
+  const [shouldAnimateLine, setShouldAnimateLine] = useState<boolean>(false);
+  const [shouldAnimateOthers, setShouldAnimateOthers] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   const handleAnimationComplete = () => {
-    setIsAnimating(false)
+    setIsAnimating(false);
   }
 
   const arrowVariants = {
@@ -59,15 +59,15 @@ export default function Home() {
               className="absolute left-0 top-0 tracking-widest
               hidden md:flex flex-col gap-5 cursor-pointer"
               onMouseEnter={() => {
-                setShouldAnimateOthers(true)
+                setShouldAnimateOthers(true);
                 if (!isAnimating) {
                   setShouldAnimateLine(true);
                   setIsAnimating(true);
                 }
               }}
               onMouseLeave={() => {
-                setShouldAnimateLine(false)
-                setShouldAnimateOthers(false)
+                setShouldAnimateLine(false);
+                setShouldAnimateOthers(false);
               }}
             >
               {/* follow text */}
@@ -115,7 +115,7 @@ export default function Home() {
                 leading-[1.4rem] font-bold"
               >
                 &quot;Lascia che il tuo giorno speciale diventi un&apos;
-                opera d&apos;arte senza tempo.{" "}
+                opera d&apos;arte senza tempo.
                 Fotografia e video per matrimoni che raccontano emozioni&quot;
               </p>
               <AnimatedButton
@@ -128,5 +128,5 @@ export default function Home() {
         </div>
       </div>
     </section>
-  )
+  );
 }

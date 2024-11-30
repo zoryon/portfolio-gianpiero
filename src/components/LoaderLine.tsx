@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface LoaderLineProps {
@@ -36,7 +36,7 @@ const LoaderLine = ({ trigger, onComplete }: LoaderLineProps) => {
                 }}
             />
         </motion.div>
-    )
+    );
 }
 
-export default LoaderLine
+export default LoaderLine;

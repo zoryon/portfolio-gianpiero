@@ -13,10 +13,10 @@ const AnimatedButton = ({
     path: string,
     width: number,
 }) => {
-    const [isHover, setIsHover] = useState<boolean>(false)
+    const [isHover, setIsHover] = useState<boolean>(false);
 
-    const strWidth = width.toString() + "px"
-    const strHoverWidth = (width + 20).toString() + "px"
+    const strWidth = width.toString() + "px";
+    const strHoverWidth = (width + 20).toString() + "px";
 
     const buttonVariants = {
         initial: { width: strWidth },

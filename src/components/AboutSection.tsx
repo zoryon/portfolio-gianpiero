@@ -6,18 +6,21 @@ const AboutSection = ({
     className,
     title,
     description,
+    id,
 } : {
     children: React.ReactNode,
     className?: string,
     title: string,
     description: string,
+    id?: string,
 }) => {
     return (
         <section 
             className={cn(
-                `sm:px-8 2xl:px-16 py-16 flex flex-col gap-5 relative`,
+                `sm:px-8 2xl:px-20 py-16 flex flex-col gap-5 relative`,
                 className,
             )}
+            id={id}
         >
             {/* title */}
             <SectionTitle
@@ -34,7 +37,7 @@ const AboutSection = ({
                 absolute left-0 bottom-0"
             />
         </section>
-    )
+    );
 }
 
-export default AboutSection
+export default AboutSection;

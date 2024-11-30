@@ -12,7 +12,7 @@ export const LeftDesktopNavbar = () => {
         <ul className="hidden lg:flex justify-center items-center gap-5">
             <NavbarLinks position="left" />
         </ul>
-    )
+    );
 }
 
 export const RightDesktopNavbar = () => {
@@ -20,25 +20,25 @@ export const RightDesktopNavbar = () => {
         <ul className="hidden lg:flex justify-center items-center gap-5">
             <NavbarLinks position="right" />
         </ul>
-    )
+    );
 }
 
 interface NavbarLinksProps {
     position: "left" | "right";
 }
 const NavbarLinks = ({ position }: NavbarLinksProps) => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-    const pathname = usePathname()
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const pathname = usePathname();
 
     const leftLinks = NAVBAR_LINKS.slice(0, 3);
     const rightLinks = NAVBAR_LINKS.slice(3);
 
-    const linksToRender = position === "left" ? leftLinks : rightLinks
+    const linksToRender = position === "left" ? leftLinks : rightLinks;
 
     return (
         linksToRender.map((link, i) => {
-            const isActive = link.path === pathname
-            const shouldAnimate = i === hoveredIndex
+            const isActive = link.path === pathname;
+            const shouldAnimate = i === hoveredIndex;
 
             return (
                 <li
@@ -74,7 +74,7 @@ const NavbarLinks = ({ position }: NavbarLinksProps) => {
                         />
                     </Link>
                 </li>
-            )
+            );
         })
     );
 };

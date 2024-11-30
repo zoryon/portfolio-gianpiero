@@ -1,13 +1,21 @@
-import AboutSection from "@/components/AboutSection"
-import AnimatedButton from "@/components/AnimatedButton"
-import Image from "next/image"
-import Link from "next/link"
+import AboutBottombar from "@/components/AboutBottombar";
+import AboutSection from "@/components/AboutSection";
+import AnimatedButton from "@/components/AnimatedButton";
+import Copyright from "@/components/Copyright";
+import ScrollArea from "@/components/ScrollArea";
+import ServicesDisplay from "@/components/ServicesDisplay";
+import SkillsDisplay from "@/components/SkillsDisplay";
+import StatsDisplay from "@/components/StatsDisplay";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import Link from "next/link";
 
 const AboutPage = () => {
     return (
         <section
-            className="w-screen lg:h-[calc(100vh-90px)] 
-            flex flex-col lg:flex-row items-center"
+            className="w-screen xl:h-[calc(100vh-90px)] 
+            flex flex-col xl:flex-row items-center"
         >
             {/* left panel */}
             <div>
@@ -16,58 +24,38 @@ const AboutPage = () => {
                     src="/images/about/company-1.jpg"
                     width={2000}
                     height={2000}
-                    className="w-screen lg:w-[44.5vw] h-[40.5vh] md:h-[55vh]
-                    lg:h-[calc(100vh-90px)] object-cover object-bottom"
+                    className="w-screen xl:w-[44.5vw] h-[40.5vh] md:h-[55vh]
+                    xl:h-[calc(100vh-90px)] object-cover object-bottom"
                 />
             </div>
 
             {/* right panel */}
             <div className="relative">
                 {/* scroll area */}
-                <div
-                    className="w-full lg:w-[55.5vw] h-fit
-                    lg:h-[calc(100vh-90px)] px-5 sm:px-8 2xl:px-16
-                    py-16 lg:scroll-area"
+                <ScrollArea
+                    className="w-full xl:w-[55.5vw] h-fit
+                    xl:h-[calc(100vh-90px)] px-5 sm:px-8 2xl:px-16
+                    py-8 2xl:py-16"
                 >
-                    <HistorySection />
-                </div>
+                    <HistorySection id="history" />
+                    <SkillsSection id="skills" />
+                    <ServicesSection id="services" />
+                </ScrollArea>
 
                 {/* bottombar --> navigate through section of scroll area */}
-                <div 
-                    className="w-full h-[80px] fixed lg:absolute left-0 bottom-0
-                    bg-secondary flex justify-center items-center gap-8
-                    text-background"
-                >
-                    <Link 
-                        className="small-title"
-                        href="#"
-                    >
-                        about
-                    </Link>
-                    <Link 
-                        className="small-title"
-                        href="#"
-                    >
-                        skills
-                    </Link>
-                    <Link 
-                        className="small-title"
-                        href="#"
-                    >
-                        services
-                    </Link>
-                </div>
+                <AboutBottombar />
             </div>
-            
+
         </section>
-    )
+    );
 }
 
-const HistorySection = () => {
+const HistorySection = ({ id }: { id?: string }) => {
     return (
-        <AboutSection 
-            title="LA NOSTRA STORIA"
+        <AboutSection
+            title="La nostra storia"
             description="Un breve racconto su come siamo diventati fotografi"
+            id={id}
         >
             <p className="text-xs font-bold leading-[1.35rem] mb-8">
                 Ciao a tutti! Sono Gianpiero, un fotografo di Firenze con due anni di esperienza nel campo.
@@ -82,46 +70,69 @@ const HistorySection = () => {
             </p>
 
             {/* stats container */}
-            <div
-                className="flex flex-wrap justify-start items-center
-                gap-x-12 xl:gap-x-24 gap-y-6 mb-8 sm:mb-16"
-            >
-                {/* work stats */}
-                <div className="flex flex-col justify-center items-start gap-3">
-                    <div className="text-3xl lg:text-4xl font-extrabold tracking-tighter">
-                        102
-                    </div>
-                    <div className="text-xs italic">
-                        Lavori Completati
-                    </div>
-                </div>
-                {/* client stats */}
-                <div className="flex flex-col justify-center items-start gap-3">
-                    <div className="text-3xl lg:text-4xl font-extrabold tracking-tighter">
-                        102
-                    </div>
-                    <div className="text-xs italic">
-                        Clienti Soddisfatti
-                    </div>
-                </div>
-                {/* hours stats */}
-                <div className="flex flex-col justify-center items-start gap-3">
-                    <div className="text-3xl lg:text-4xl font-extrabold tracking-tighter">
-                        541
-                    </div>
-                    <div className="text-xs italic">
-                        Ore Lavorate
-                    </div>
-                </div>
-            </div>
+            <StatsDisplay />
 
-            <AnimatedButton 
+            <AnimatedButton
                 path="/photography"
                 text="photography"
                 width={160}
             />
         </AboutSection>
-    )
+    );
 }
 
-export default AboutPage
+const SkillsSection = ({ id }: { id?: string }) => {
+    return (
+        <AboutSection
+            title="Skills and Attainments"
+            description="Le skill che abbiamo ottenuto in questi anni"
+            id={id}
+        >
+            <SkillsDisplay />
+        </AboutSection>
+    );
+}
+
+const ServicesSection = ({ id }: { id?: string }) => {
+    return (
+        <AboutSection
+            title="Services and Prices"
+            description="Prezzi competitivi: Offro servizi fotografici di alta qualità
+            a tariffe competitive, garantendo un ottimo rapporto qualità-prezzo."
+            id={id}
+        >
+            <main>
+                <ServicesDisplay />
+
+                <p className="text-xs font-bold mt-10 mb-16">
+                    Scegliendomi come fotografo, potrete contare su un partner affidabile per catturare momenti speciali con stile.
+                    Contattatemi oggi stesso per discutere le vostre esigenze fotografiche e
+                    come posso contribuire a rendere uniche le vostre immagini.
+                </p>
+            </main>
+
+            <footer>
+                <Separator />
+
+                <div
+                    className="flex justify-between items-center smallest-title font-extrabold mt-5"
+                >
+                    <Copyright />
+                    <Link
+                        href="#history"
+                    >
+                        <Button
+                            className="flex items-center gap-6
+                            rounded-none small-title font-bold text-[0.65rem] px-8 py-5"
+                        >
+                            <div>Torna su</div>
+                            <i className="fa-regular fa-arrow-up"></i>
+                        </Button>
+                    </Link>
+                </div>
+            </footer>
+        </AboutSection>
+    );
+}
+
+export default AboutPage;

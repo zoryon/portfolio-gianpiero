@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Eternal - Idee & Consigli per Matrimoni a Firenze",
     description: "Stai pianificando il tuo Matrimonio a Firenze? Scopri location e consigli utili.",
-};
+}
 
 const BlogPage = ({
     children,
@@ -14,7 +14,7 @@ const BlogPage = ({
         <>
             {children}
         </>
-    )
+    );
 }
 
 export default BlogPage

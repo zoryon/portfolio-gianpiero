@@ -3,7 +3,7 @@ const VideographyPage = () => {
         <section>
 
         </section>
-    )
+    );
 }
 
-export default VideographyPage
+export default VideographyPage;

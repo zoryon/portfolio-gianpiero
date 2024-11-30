@@ -1,11 +1,11 @@
 "use client"
 
-import { PORTFOLIO_IMAGES } from "@/lib/portfolio-constants"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
-import { cn } from "@/lib/utils"
-import { useGalleryContext } from "@/contexts/gallery.context"
+import { PORTFOLIO_IMAGES } from "@/lib/portfolio-constants";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { useGalleryContext } from "@/contexts/gallery.context";
 
 const PhotographyPage = () => {
     return (
@@ -19,19 +19,19 @@ const PhotographyPage = () => {
 }
 
 const PortfolioItems = () => {
-    const { enableGallery } = useGalleryContext()
+    const { enableGallery } = useGalleryContext();
 
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 100)
-        return () => clearTimeout(timeout)
-    }, [])
+        const timeout = setTimeout(() => setIsMounted(true), 100);
+        return () => clearTimeout(timeout);
+    }, []);
 
     return (
         PORTFOLIO_IMAGES.map((image, i) => {
-            const isHovered: boolean = i === hoveredIndex
+            const isHovered: boolean = i === hoveredIndex;
 
             return (
                 <motion.div
@@ -91,4 +91,4 @@ const PortfolioItems = () => {
 };
 
 
-export default PhotographyPage
+export default PhotographyPage;

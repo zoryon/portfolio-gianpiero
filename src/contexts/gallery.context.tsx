@@ -19,11 +19,11 @@ export const GalleryContextProvider = ({
 }: {
     children: React.ReactNode,
 }) => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null)
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const enableGallery = ({ src } : { src: string }) => setSelectedImage(src)
+    const enableGallery = ({ src } : { src: string }) => setSelectedImage(src);
 
-    const disableGallery = () => setSelectedImage(null)
+    const disableGallery = () => setSelectedImage(null);
 
     return (
         <GalleryContext.Provider value={{
@@ -33,7 +33,7 @@ export const GalleryContextProvider = ({
         }}>
             {children}
         </GalleryContext.Provider>
-    )
+    );
 }
 
 export const useGalleryContext = () => {
@@ -43,5 +43,5 @@ export const useGalleryContext = () => {
         throw new Error('useGalleryContext must be used within a GalleryContextProvider')
     }
     
-    return context
+    return context;
 }

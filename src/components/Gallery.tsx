@@ -20,7 +20,7 @@ const Gallery = () => {
                 setCurrentIndex(index)
             }
         }
-    }, [selectedImage])
+    }, [selectedImage]);
 
     function handleNext() {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % PORTFOLIO_IMAGES.length)
@@ -52,7 +52,7 @@ const Gallery = () => {
                 ease: "easeInOut",
             },
         },
-    };
+    }
 
     return (
         <motion.div
@@ -127,7 +127,7 @@ const Gallery = () => {
                 </>
             )}
         </motion.div>
-    )
+    );
 }
 
-export default Gallery
+export default Gallery;
