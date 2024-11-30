@@ -1,4 +1,4 @@
 export type StatType = {
     title: string,
-    quantity: number,
+    quantity: string,
 }

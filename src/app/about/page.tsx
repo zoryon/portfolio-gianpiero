@@ -53,29 +53,28 @@ const AboutPage = () => {
 const HistorySection = ({ id }: { id?: string }) => {
     return (
         <AboutSection
-            title="La nostra storia"
-            description="Un breve racconto su come siamo diventati fotografi"
+            title="La mia storia"
+            description="Un breve racconto su come sono diventato fotografo"
             id={id}
         >
             <p className="text-xs font-bold leading-[1.35rem] mb-8">
-                Ciao a tutti! Sono Gianpiero, un fotografo di Firenze con due anni di esperienza nel campo.
-                Ho sempre avuto una passione per la fotografia sin da giovane,
-                ma è solo negli ultimi due anni che ho deciso di farne una professione.
-                Durante questo percorso, ho investito molto tempo nel migliorare le mie abilità fotografiche.
-                Ho seguito corsi specializzati in studio, concentrandomi sulla gestione della luce e dei flash.
-                Questa formazione mi ha permesso di creare scatti unici e memorabili, catturando l&apos;essenza dei soggetti fotografati.
-                Inoltre, ho dedicato molto tempo a imparare i software più famosi del settore, come Illustrator, Photoshop, Lightroom e Capture One.
-                Questi strumenti sono essenziali per trasformare le mie immagini in opere d&apos;arte digitali, dando vita alla mia visione creativa.
-                Sono molto orgoglioso del mio percorso finora e non vedo l&apos;ora di condividere il mio lavoro con voi.
+                Ciao a tutti! Sono Gianpiero, un fotografo di Firenze con sei anni di esperienza nel settore e il creatore di Eternal Studio, un progetto dedicato ai matrimoni. 
+                Ho sempre avuto una passione per la fotografia, ma solo negli ultimi tre anni ho deciso di trasformarla in una professione. Durante questo percorso, 
+                ho migliorato le mie abilità seguendo corsi specializzati, imparando a gestire luce e flash per creare scatti memorabili.
+                Ho anche acquisito competenze nei principali software di editing come Photoshop,
+                Lightroom e Capture One, strumenti fondamentali per dare vita alla mia visione artistica. 
+                Con Eternal Studio, collaboro con videomaker selezionati per offrire un servizio completo di foto e video,
+                catturando ogni dettaglio del giorno più importante.
+                Sono orgoglioso del mio percorso e non vedo l&apos;ora di condividere i miei lavori con voi!
             </p>
 
             {/* stats container */}
             <StatsDisplay />
 
             <AnimatedButton
-                path="/photography"
-                text="photography"
-                width={160}
+                path="/contatti"
+                text="richiedi preventivo"
+                width={190}
             />
         </AboutSection>
     );
@@ -96,8 +95,8 @@ const SkillsSection = ({ id }: { id?: string }) => {
 const ServicesSection = ({ id }: { id?: string }) => {
     return (
         <AboutSection
-            title="Services and Prices"
-            description="Prezzi competitivi: Offro servizi fotografici di alta qualità
+            title="Servizi e Prezzi"
+            description="Prezzi competitivi: Offriamo servizi fotografici e video di alta qualità
             a tariffe competitive, garantendo un ottimo rapporto qualità-prezzo."
             id={id}
         >
@@ -115,7 +114,9 @@ const ServicesSection = ({ id }: { id?: string }) => {
                 <Separator />
 
                 <div
-                    className="flex justify-between items-center smallest-title font-extrabold mt-5"
+                    className="flex flex-col sm:flex-row justify-between items-start
+                    sm:items-center smallest-title font-extrabold mt-8
+                    sm:mt-5 gap-6"
                 >
                     <Copyright />
                     <Link

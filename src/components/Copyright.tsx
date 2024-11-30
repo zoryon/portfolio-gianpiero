@@ -3,7 +3,7 @@ const Copyright = () => {
 
     return (
         <div>
-            © Gianpiero Spata {currentYear} / All rights reserved.
+            © Eternal Studio {currentYear} / All rights reserved.
         </div>
     );
 }

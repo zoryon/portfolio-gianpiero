@@ -6,29 +6,26 @@ export const SERVICES_ARRAY: ServiceType[] = [
         description: `"I nostri scatti raccontano storie di gioia, emozione e condivisione.
         Lasciate che le immagini immortalino i vostri momenti speciali."`,
         subtitles: [
-            "Diciottesimi",
-            "Discoteche",
-            "Commercials",
+            "Servizi Extra: Album, riprese video, sessioni pre-matrimoniali",
         ],
         priceRange: [
-            100,
+            650,
             2000,
         ],
-        src: "/images/portfolio/matrimoni/matrimoni-5.jpg"
+        src: "/images/about/service-1.jpg"
     },
     {
         title: "Weddings Videography",
-        description: `"I nostri scatti raccontano storie di gioia, emozione e condivisione.
-        Lasciate che le immagini immortalino i vostri momenti speciali."`,
+        description: `"I nostri video raccontano storie di gioia, emozione e condivisione.
+        Lasciate che i video immortalino i vostri momenti speciali."`,
         subtitles: [
-            "Diciottesimi",
-            "Discoteche",
-            "Commercials",
+            "Servizi Extra: sessioni pre-matrimoniali",
+            "Riprese Drone",
         ],
         priceRange: [
-            100,
+            650,
             2000,
         ],
-        src: "/images/portfolio/matrimoni/matrimoni-2.jpg"
+        src: "/images/about/service-2.jpg"
     },
 ] as const;
