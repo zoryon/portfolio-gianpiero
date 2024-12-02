@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export const LeftDesktopNavbar = () => {
     return (
-        <ul className="hidden lg:flex justify-center items-center gap-5">
+        <ul className="hidden lg:flex lg:flex-1 justify-end items-center gap-5">
             <NavbarLinks position="left" />
         </ul>
     );
@@ -17,7 +17,7 @@ export const LeftDesktopNavbar = () => {
 
 export const RightDesktopNavbar = () => {
     return (
-        <ul className="hidden lg:flex justify-center items-center gap-5">
+        <ul className="hidden lg:flex lg:flex-1 justify-start items-center gap-5">
             <NavbarLinks position="right" />
         </ul>
     );
