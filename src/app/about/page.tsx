@@ -1,5 +1,6 @@
-import AboutBottombar from "@/components/AboutBottombar";
-import AboutSection from "@/components/AboutSection";
+import { ABOUT_BOTTOMBAR_LINKS } from "@/lib/about-bottombar-constants";
+import SectionBottombar from "@/components/SectionBottombar";
+import Section from "@/components/Section";
 import AnimatedButton from "@/components/AnimatedButton";
 import Copyright from "@/components/Copyright";
 import ScrollArea from "@/components/ScrollArea";
@@ -43,7 +44,7 @@ const AboutPage = () => {
                 </ScrollArea>
 
                 {/* bottombar --> navigate through section of scroll area */}
-                <AboutBottombar />
+                <SectionBottombar array={[...ABOUT_BOTTOMBAR_LINKS]} />
             </div>
 
         </section>
@@ -52,7 +53,7 @@ const AboutPage = () => {
 
 const HistorySection = ({ id }: { id?: string }) => {
     return (
-        <AboutSection
+        <Section
             title="La mia storia"
             description="Un breve racconto su come sono diventato fotografo"
             id={id}
@@ -76,25 +77,25 @@ const HistorySection = ({ id }: { id?: string }) => {
                 text="richiedi preventivo"
                 width={190}
             />
-        </AboutSection>
+        </Section>
     );
 }
 
 const SkillsSection = ({ id }: { id?: string }) => {
     return (
-        <AboutSection
+        <Section
             title="Skills and Attainments"
             description="Le skill che abbiamo ottenuto in questi anni"
             id={id}
         >
             <SkillsDisplay />
-        </AboutSection>
+        </Section>
     );
 }
 
 const ServicesSection = ({ id }: { id?: string }) => {
     return (
-        <AboutSection
+        <Section
             title="Servizi e Prezzi"
             description="Prezzi competitivi: Offriamo servizi fotografici e video di alta qualità
             a tariffe competitive, garantendo un ottimo rapporto qualità-prezzo."
@@ -132,7 +133,7 @@ const ServicesSection = ({ id }: { id?: string }) => {
                     </Link>
                 </div>
             </footer>
-        </AboutSection>
+        </Section>
     );
 }
 

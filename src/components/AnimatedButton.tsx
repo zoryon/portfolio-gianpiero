@@ -8,10 +8,12 @@ const AnimatedButton = ({
     text,
     path,
     width,
+    onClick,
 }: {
     text: string,
     path: string,
     width: number,
+    onClick?: () => void,
 }) => {
     const [isHover, setIsHover] = useState<boolean>(false);
 
@@ -41,7 +43,13 @@ const AnimatedButton = ({
     }
 
     return (
-        <Link href={`${path}`}>
+        <Link
+            href={`${path}`}
+            onClick={() => {
+                if (onClick) onClick();
+            }}
+            
+        >
             <motion.div
                 className="w-fit h-[45px] flex justify-end items-center 
                 cursor-pointer bg-secondary smallest-title relative text-background

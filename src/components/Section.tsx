@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import SectionTitle from "./SectionTitle"
 
-const AboutSection = ({ 
+const Section = ({ 
     children,
     className,
     title,
@@ -40,4 +40,4 @@ const AboutSection = ({
     );
 }
 
-export default AboutSection;
+export default Section;

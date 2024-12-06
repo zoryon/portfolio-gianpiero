@@ -2,7 +2,7 @@ const Copyright = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div>
+        <div className="smallest-title font-extrabold">
             © Eternal Studio {currentYear} / All rights reserved.
         </div>
     );
