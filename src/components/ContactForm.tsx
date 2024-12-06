@@ -15,9 +15,9 @@ import {
 import { Textarea } from "./ui/textarea";
 
 const contactFormSchema = z.object({
-    name: z.string().min(2).max(50),
-    email: z.string().email(),
-    text: z.string().min(10).max(1000),
+    name: z.string().min(2, { message: "Il nome deve contenere almeno 2 caratteri." }).max(50),
+    email: z.string().email({ message: "Email non valida" }),
+    text: z.string().min(10, { message: "Il messaggio deve contenere almeno 10 caratteri." }).max(1000),
 })
 
 const ContactForm = () => {
