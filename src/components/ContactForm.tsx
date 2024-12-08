@@ -1,6 +1,7 @@
 "use client"
 
 import { z } from "zod";
+import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "./ui/input";
@@ -13,9 +14,10 @@ import {
     FormMessage
 } from "./ui/form";
 import { Textarea } from "./ui/textarea";
+import { useState } from "react";
 
 const contactFormSchema = z.object({
-    name: z.string().min(2, {
+    firstName: z.string().min(2, {
         message: "Il nome deve contenere almeno 2 caratteri." 
     }).max(50, {
         message: "Il nome può contenere massimo 50 caratteri." 
@@ -29,17 +31,32 @@ const contactFormSchema = z.object({
 })
 
 const ContactForm = () => {
+    const [loading, setLoading] = useState<boolean>(false);
+
     const contactForm = useForm<z.infer<typeof contactFormSchema>>({
         resolver: zodResolver(contactFormSchema),
         defaultValues: {
-            name: "",
+            firstName: "",
             email: "",
             text: "",
         },
     })
 
-    function onSubmit(values: z.infer<typeof contactFormSchema>) {
-        console.log(values)
+    async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+        setLoading(true);
+
+        try {
+            const { data } = await axios.post("/api/email/send", values);
+
+            if (data.error) {
+                console.error(data.error);
+                return;
+            }
+        } catch (error) {
+            console.error("Failed to send email:", error);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -51,13 +68,14 @@ const ContactForm = () => {
                 {/* user's name */}
                 <FormField
                     control={contactForm.control}
-                    name="name"
+                    name="firstName"
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
                                 <Input
                                     placeholder="Nome *"
                                     className="rounded-none p-6"
+                                    disabled={loading}
                                     {...field}
                                 />
                             </FormControl>
@@ -76,6 +94,7 @@ const ContactForm = () => {
                                 <Input
                                     placeholder="Email *"
                                     className="rounded-none p-6"
+                                    disabled={loading}
                                     {...field}
                                 />
                             </FormControl>
@@ -94,6 +113,7 @@ const ContactForm = () => {
                                 <Textarea
                                     placeholder="Messaggio *"
                                     className="rounded-none p-6 min-h-[230px] max-h-[230px]"
+                                    disabled={loading}
                                     {...field}
                                 />
                             </FormControl>
@@ -104,8 +124,9 @@ const ContactForm = () => {
 
                 <AnimatedButton
                     path="javascript:void(0)"
-                    text="Manda un messaggio"
-                    width={203}
+                    text={loading ? "Invio in corso..." : "Manda un messaggio"}
+                    width={loading ? 190 : 203}
+                    disabled={loading}
                     onClick={() => contactForm.handleSubmit(onSubmit)()}
                 />
             </form>

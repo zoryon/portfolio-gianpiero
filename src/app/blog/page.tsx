@@ -1,7 +1,9 @@
-const NewsPage = () => {
+const BlogPage = () => {
     return (
-        <div>NewsPage</div>
+        <div className="w-full h-[calc(100vh-90px)] flex justify-center items-center">
+            Work In Progress..
+        </div>
     );
 }
 
-export default NewsPage;
+export default BlogPage;
