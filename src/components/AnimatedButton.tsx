@@ -14,7 +14,7 @@ const AnimatedButton = ({
     text: string,
     path: string,
     width: number,
-    disabled: boolean,
+    disabled?: boolean,
     onClick?: () => void,
 }) => {
     const [isHover, setIsHover] = useState<boolean>(false);
