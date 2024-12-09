@@ -67,7 +67,7 @@ const DetailsSection = ({ id }: { id?: string }) => {
                         Email:
                     </div>
                     <div className="small-title !text-sm">
-                        gianpierospata2@gmail.com
+                        info@eternalstudio.it
                     </div>
                 </div>
 
