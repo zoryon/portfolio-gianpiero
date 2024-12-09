@@ -1,4 +1,5 @@
 import { EmailTemplate } from '@/components/EmailTemplate';
+import { isValidEmail, isValidPhoneNumber } from '@/lib/email';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -9,10 +10,18 @@ const subject = process.env.ETERNALSTUDIO_DEFAULT_SUBJECT || "error";
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { firstName, email, text } = body;
+        const { firstName, email, phoneNumber, text } = body;
 
         if (!firstName || !email || !text) { 
             return Response.json({ error: "Missing required fields" }, { status: 400 });
+        }
+
+        if (!isValidEmail(email)) {
+            return Response.json({ error: "Invalid email format" }, { status: 400 });
+        }
+
+        if (phoneNumber && !isValidPhoneNumber(phoneNumber)) {
+            return Response.json({ error: "Invalid phone number format" }, { status: 400 });
         }
 
         const { data, error } = await resend.emails.send({
@@ -22,6 +31,7 @@ export async function POST(req: Request) {
             react: EmailTemplate({
                 firstName: firstName,
                 email: email,
+                phoneNumber: phoneNumber || undefined,
                 text: text,
             }),
         });

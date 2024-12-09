@@ -23,6 +23,9 @@ const contactFormSchema = z.object({
         message: "Il nome può contenere massimo 50 caratteri." 
     }),
     email: z.string().email({ message: "Email non valida" }),
+    phoneNumber: z.string().max(20, {
+        message: "Il numero di telefono può contenere massimo 20 numeri."
+    }).optional(),
     text: z.string().min(10, {
         message: "Il messaggio deve contenere almeno 10 caratteri."
     }).max(1000, {
@@ -38,6 +41,7 @@ const ContactForm = () => {
         defaultValues: {
             firstName: "",
             email: "",
+            phoneNumber: "",
             text: "",
         },
     })
@@ -93,6 +97,25 @@ const ContactForm = () => {
                             <FormControl>
                                 <Input
                                     placeholder="Email *"
+                                    className="rounded-none p-6"
+                                    disabled={loading}
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                    
+                {/* user's phone number */}
+                <FormField
+                    control={contactForm.control}
+                    name="phoneNumber"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Input
+                                    placeholder="Numero di telefono"
                                     className="rounded-none p-6"
                                     disabled={loading}
                                     {...field}
