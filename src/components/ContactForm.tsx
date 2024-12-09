@@ -58,10 +58,11 @@ const ContactForm = () => {
                 console.error(data.error);
                 return;
             }
+
+            setIsSuccess(true);
         } catch (error) {
             console.error("Failed to send email:", error);
         } finally {
-            setIsSuccess(true);
             setLoading(false);
         }
     }
@@ -159,7 +160,7 @@ const ContactForm = () => {
                     ""
                 ) : (
                     isSuccess ? (
-                        <div className="text-green-500">
+                        <div className="text-foreground">
                             Messaggio inviato con successo!
                         </div>
                     ) : (
