@@ -2,8 +2,8 @@ import { EmailTemplate } from '@/components/EmailTemplate';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const websiteReceiver = process.env.ETERNALSTUDIO_RECEIVER_EMAIL || "error";
-const finalReceiver = process.env.RECEIVER_WORKING_EMAIL || "error";
+const fromEmail = process.env.ETERNALSTUDIO_FROM_EMAIL || "error";
+const toEmail = process.env.PERSONAL_RECEIVER_EMAIL || "error";
 const subject = process.env.ETERNALSTUDIO_DEFAULT_SUBJECT || "error";
 
 export async function POST(req: Request) {
@@ -11,13 +11,17 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { firstName, email, text } = body;
 
+        if (!firstName || !email || !text) { 
+            return Response.json({ error: "Missing required fields" }, { status: 400 });
+        }
+
         const { data, error } = await resend.emails.send({
-            from: email,
-            to: [websiteReceiver,],
-            replyTo: [finalReceiver,],
+            from: fromEmail,
+            to: [toEmail,],
             subject: subject,
             react: EmailTemplate({
                 firstName: firstName,
+                email: email,
                 text: text,
             }),
         });
