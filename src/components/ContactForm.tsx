@@ -164,7 +164,7 @@ const ContactForm = () => {
                         </div>
                     ) : (
                         <div className="text-red-500">
-                            Errore durante l'invio del messaggio!
+                            Errore durante l&apos;invio del messaggio!
                         </div>
                     )
                 )}</p>
