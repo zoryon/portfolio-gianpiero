@@ -18,9 +18,9 @@ import { useState } from "react";
 
 const contactFormSchema = z.object({
     firstName: z.string().min(2, {
-        message: "Il nome deve contenere almeno 2 caratteri." 
+        message: "Il nome deve contenere almeno 2 caratteri."
     }).max(50, {
-        message: "Il nome può contenere massimo 50 caratteri." 
+        message: "Il nome può contenere massimo 50 caratteri."
     }),
     email: z.string().email({ message: "Email non valida" }),
     phoneNumber: z.string().max(20, {
@@ -29,12 +29,13 @@ const contactFormSchema = z.object({
     text: z.string().min(10, {
         message: "Il messaggio deve contenere almeno 10 caratteri."
     }).max(1000, {
-        message: "Il messaggio può contenere massimo 1000 caratteri." 
+        message: "Il messaggio può contenere massimo 1000 caratteri."
     }),
 })
 
 const ContactForm = () => {
     const [loading, setLoading] = useState<boolean>(false);
+    const [isSuccess, setIsSuccess] = useState<boolean | undefined>(undefined);
 
     const contactForm = useForm<z.infer<typeof contactFormSchema>>({
         resolver: zodResolver(contactFormSchema),
@@ -53,12 +54,14 @@ const ContactForm = () => {
             const { data } = await axios.post("/api/email/send", values);
 
             if (data.error) {
+                setIsSuccess(false);
                 console.error(data.error);
                 return;
             }
         } catch (error) {
             console.error("Failed to send email:", error);
         } finally {
+            setIsSuccess(true);
             setLoading(false);
         }
     }
@@ -106,7 +109,7 @@ const ContactForm = () => {
                         </FormItem>
                     )}
                 />
-                    
+
                 {/* user's phone number */}
                 <FormField
                     control={contactForm.control}
@@ -152,6 +155,19 @@ const ContactForm = () => {
                     disabled={loading}
                     onClick={() => contactForm.handleSubmit(onSubmit)()}
                 />
+                <p className="mt-5 text-xs">{isSuccess === undefined ? (
+                    ""
+                ) : (
+                    isSuccess ? (
+                        <div className="text-green-500">
+                            Messaggio inviato con successo!
+                        </div>
+                    ) : (
+                        <div className="text-red-500">
+                            Errore durante l'invio del messaggio!
+                        </div>
+                    )
+                )}</p>
             </form>
         </Form>
     );
