@@ -2,7 +2,8 @@ import { EmailTemplate } from '@/components/EmailTemplate';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const receiver = process.env.ETERNALSTUDIO_RECEIVER_EMAIL || "error";
+const websiteReceiver = process.env.ETERNALSTUDIO_RECEIVER_EMAIL || "error";
+const finalReceiver = process.env.RECEIVER_WORKING_EMAIL || "error";
 const subject = process.env.ETERNALSTUDIO_DEFAULT_SUBJECT || "error";
 
 export async function POST(req: Request) {
@@ -12,7 +13,8 @@ export async function POST(req: Request) {
 
         const { data, error } = await resend.emails.send({
             from: email,
-            to: [receiver,],
+            to: [websiteReceiver,],
+            replyTo: [finalReceiver,],
             subject: subject,
             react: EmailTemplate({
                 firstName: firstName,
