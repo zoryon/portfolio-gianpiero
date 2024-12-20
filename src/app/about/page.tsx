@@ -19,7 +19,7 @@ const AboutPage = () => {
             flex flex-col xl:flex-row items-center"
         >
             {/* left panel */}
-            <div>
+            <div className="relative">
                 <Image
                     alt="Company Image"
                     src="/images/about/company-1.jpg"
@@ -28,6 +28,32 @@ const AboutPage = () => {
                     className="w-screen xl:w-[44.5vw] h-[40.5vh] md:h-[55vh]
                     xl:h-[calc(100vh-90px)] object-cover object-bottom"
                 />
+
+                {/* image overlay */}
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[88%] text-background">
+                    {/* wrapper - needed to use relative position */}
+                    <div className="size-full relative">
+                        {/* decorations */}
+                        <>
+                            {/* top right - horizontal */}
+                            <div className="h-[1px] w-[68px] bg-background absolute top-0 right-0" />
+
+                            {/* top right - vertical */}
+                            <div className="h-[68px] w-[1px] bg-background absolute top-0 right-0" />
+                        </>
+
+                        {/* content */}
+                        <div className="absolute left-0 bottom-[20%]">
+                            {/* decoration line */}
+                            <div className="w-[60px] h-[3px] bg-background mb-14" />
+
+                            {/* title */}
+                            <div className="font-bold text-4xl">
+                                About Me
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* right panel */}
