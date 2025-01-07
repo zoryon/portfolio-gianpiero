@@ -1,0 +1,25 @@
+# defining services (only nextjs for now)
+services:
+  nextjs:
+    image: zoryon/node:${ENV}-23.5.0-alpine3.20
+    container_name: eternalstudio
+    build: 
+      context: ./
+      target: 'image-${ENV}'
+      args:
+        NEXT_PUBLIC_ENVIRONMENT: '${ENV}'
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /home/node/app/node_modules # managed by docker
+      - /home/node/app/.next # managed by docker
+    environment:
+      NEXT_PUBLIC_ENVIRONMENT: '${ENV}'
+    env_file: # at the end to avoid overridings
+      - .env
+
+# defining volumes
+volumes:
+  node_modules:
+  build:
