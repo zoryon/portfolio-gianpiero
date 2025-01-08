@@ -35,8 +35,8 @@ RUN npm run build
 
 # dev environment
 FROM base AS image-development
-CMD [ "npm", "run", "dev" ]
+CMD [ -d "node_modules" ] && npm run dev || npm ci && npm run dev
 
 # prod environment
 FROM base-remote AS image-production
-CMD [ "npm", "run", "start" ]
+CMD [ -d "node_modules" ] && [ -d ".next" ] && npm run start || (npm ci && npm run build && npm run start)

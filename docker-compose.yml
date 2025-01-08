@@ -11,15 +11,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-      - /home/node/app/node_modules # managed by docker
-      - /home/node/app/.next # managed by docker
+      - .:/home/node/app
     environment:
       NEXT_PUBLIC_ENVIRONMENT: '${ENV}'
-    env_file: # at the end to avoid overridings
+    env_file:
       - .env
-
-# defining volumes
-volumes:
-  node_modules:
-  build:
