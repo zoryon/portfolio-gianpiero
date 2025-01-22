@@ -20,7 +20,7 @@ const ContactsPage = () => {
             <div className="relative">
                 <Image
                     alt="Company Image"
-                    src="/images/about/company-1.jpg"
+                    src="/images/about/self-2.jpg"
                     width={2000}
                     height={2000}
                     className="w-screen xl:w-[44.5vw] h-[40.5vh] md:h-[55vh]
@@ -28,22 +28,22 @@ const ContactsPage = () => {
                 />
 
                 {/* image overlay */}
-                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[88%] text-background">
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[88%] text-foreground">
                     {/* wrapper - needed to use relative position */}
                     <div className="size-full relative">
                         {/* decorations */}
                         <>
                             {/* top right - horizontal */}
-                            <div className="h-[1px] w-[68px] bg-background absolute top-0 right-0" />
+                            <div className="h-[1px] w-[68px] bg-foreground absolute top-0 right-0" />
 
                             {/* top right - vertical */}
-                            <div className="h-[68px] w-[1px] bg-background absolute top-0 right-0" />
+                            <div className="h-[68px] w-[1px] bg-foreground absolute top-0 right-0" />
                         </>
 
                         {/* content */}
                         <div className="absolute left-0 bottom-[20%]">
                             {/* decoration line */}
-                            <div className="w-[60px] h-[3px] bg-background mb-14" />
+                            <div className="w-[60px] h-[3px] bg-foreground mb-14" />
 
                             {/* title */}
                             <div className="font-bold text-4xl">
@@ -93,7 +93,7 @@ const DetailsSection = ({ id }: { id?: string }) => {
                         Email:
                     </div>
                     <div className="small-title !text-sm">
-                        info@eternalstudio.it
+                        gianpierospata2@gmail.com
                     </div>
                 </div>
 
@@ -141,6 +141,7 @@ const TextMeSection = ({ id }: { id?: string }) => {
                         href="#details"
                     >
                         <Button
+                            variant={"outline"}
                             className="flex items-center gap-6
                             rounded-none small-title font-bold text-[0.65rem] px-8 py-5"
                         >

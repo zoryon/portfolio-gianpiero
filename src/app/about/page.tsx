@@ -22,7 +22,7 @@ const AboutPage = () => {
             <div className="relative">
                 <Image
                     alt="Company Image"
-                    src="/images/about/company-1.jpg"
+                    src="/images/about/self-1.jpg"
                     width={2000}
                     height={2000}
                     className="w-screen xl:w-[44.5vw] h-[40.5vh] md:h-[55vh]
@@ -30,22 +30,22 @@ const AboutPage = () => {
                 />
 
                 {/* image overlay */}
-                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[88%] text-background">
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[88%] text-foreground">
                     {/* wrapper - needed to use relative position */}
                     <div className="size-full relative">
                         {/* decorations */}
                         <>
                             {/* top right - horizontal */}
-                            <div className="h-[1px] w-[68px] bg-background absolute top-0 right-0" />
+                            <div className="h-[1px] w-[68px] bg-foreground absolute top-0 right-0" />
 
                             {/* top right - vertical */}
-                            <div className="h-[68px] w-[1px] bg-background absolute top-0 right-0" />
+                            <div className="h-[68px] w-[1px] bg-foreground absolute top-0 right-0" />
                         </>
 
                         {/* content */}
                         <div className="absolute left-0 bottom-[20%]">
                             {/* decoration line */}
-                            <div className="w-[60px] h-[3px] bg-background mb-14" />
+                            <div className="w-[60px] h-[3px] bg-foreground mb-14" />
 
                             {/* title */}
                             <div className="font-bold text-4xl">
@@ -85,14 +85,14 @@ const HistorySection = ({ id }: { id?: string }) => {
             id={id}
         >
             <p className="text-xs font-bold leading-[1.35rem] mb-8">
-                Ciao a tutti! Sono Gianpiero, un fotografo di Firenze con sei anni di esperienza nel settore e il creatore di Eternal Studio, un progetto dedicato ai matrimoni. 
-                Ho sempre avuto una passione per la fotografia, ma solo negli ultimi tre anni ho deciso di trasformarla in una professione. Durante questo percorso, 
-                ho migliorato le mie abilità seguendo corsi specializzati, imparando a gestire luce e flash per creare scatti memorabili.
-                Ho anche acquisito competenze nei principali software di editing come Photoshop,
-                Lightroom e Capture One, strumenti fondamentali per dare vita alla mia visione artistica. 
-                Con Eternal Studio, collaboro con videomaker selezionati per offrire un servizio completo di foto e video,
-                catturando ogni dettaglio del giorno più importante.
-                Sono orgoglioso del mio percorso e non vedo l&apos;ora di condividere i miei lavori con voi!
+                Ciao a tutti! Sono Gianpiero, un fotografo di Firenze con due anni di esperienza nel campo. 
+                Ho sempre avuto una passione per la fotografia sin da giovane, ma è solo negli ultimi due anni che ho deciso di farne una professione. 
+                Durante questo percorso, ho investito molto tempo nel migliorare le mie abilità fotografiche. 
+                Ho seguito corsi specializzati in studio, concentrandomi sulla gestione della luce e dei flash. 
+                Questa formazione mi ha permesso di creare scatti unici e memorabili, catturando l&apos;essenza dei soggetti fotografati. 
+                Inoltre, ho dedicato molto tempo a imparare i software più famosi del settore, come Illustrator, Photoshop, Lightroom e Capture One. 
+                Questi strumenti sono essenziali per trasformare le mie immagini in opere d&apos;arte digitali, dando vita alla mia visione creativa. 
+                Sono molto orgoglioso del mio percorso finora e non vedo l&apos;ora di condividere il mio lavoro con voi.
             </p>
 
             {/* stats container */}
@@ -150,6 +150,7 @@ const ServicesSection = ({ id }: { id?: string }) => {
                         href="#history"
                     >
                         <Button
+                            variant={"outline"}
                             className="flex items-center gap-6
                             rounded-none small-title font-bold text-[0.65rem] px-8 py-5"
                         >

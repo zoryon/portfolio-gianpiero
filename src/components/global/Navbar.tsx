@@ -21,7 +21,7 @@ const Navbar = () => {
                     src="/images/logo/logo.png"
                     width={1000}
                     height={1000}
-                    className="w-[140px] h-auto"
+                    className="w-[160px] h-auto"
                     priority
                 />
             </Link>

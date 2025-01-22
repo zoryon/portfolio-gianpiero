@@ -3,8 +3,8 @@ import { GalleryContextProvider } from "@/contexts/gallery.context";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Eternal - Wedding Photography",
-    description: "Foto matrimoni, Firenze.",
+    title: "Gianpiero Spata - Photography",
+    description: "Foto, Firenze.",
 }
 
 const PhotographyPage = ({

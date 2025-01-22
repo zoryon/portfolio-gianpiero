@@ -51,6 +51,7 @@ export default {
 					'5': 'hsl(var(--chart-5))'
 				},
 				subtle: 'hsl(var(--subtle))',
+				section: 'hsl(var(--section))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

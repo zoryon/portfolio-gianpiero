@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Eternal - About",
-    description: "Gianpiero Spata: Fotografo di Matrimoni a Firenze.",
+    title: "Gianpiero Spata - About",
+    description: "Gianpiero Spata: Fotografo a Firenze.",
 }
 
 const AboutPage = ({

@@ -53,7 +53,7 @@ const AnimatedButton = ({
         >
             <motion.div
                 className="w-fit h-[45px] flex justify-end items-center 
-                cursor-pointer bg-secondary smallest-title relative text-background
+                cursor-pointer bg-black smallest-title relative text-foreground
                 px-3 hover:opacity-90"
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
@@ -66,7 +66,7 @@ const AnimatedButton = ({
 
                 {/* line on hover */}
                 <motion.div
-                    className="w-0 h-[1px] bg-background"
+                    className="w-0 h-[1px] bg-foreground"
                     animate={isHover ? "hover" : "initial"}
                     variants={lineVariants}
                 />

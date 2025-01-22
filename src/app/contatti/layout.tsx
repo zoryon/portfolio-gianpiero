@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Eternal - Wedding Photography & Videography",
+    title: "Gianpiero Spata - Photography & Videography",
     description: "Contattaci per Foto & Video a Firenze.",
 }
 

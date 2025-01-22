@@ -37,7 +37,7 @@ export const Skill = ({
 
             {/* skill percentage bar bg */}
             <div
-                className="w-full h-[6px] bg-foreground"
+                className="w-full h-[6px] bg-black"
             >
                 {/* actual percentage bar */}
                 <motion.div

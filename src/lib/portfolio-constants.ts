@@ -1,13 +1,13 @@
-const MATRIMONI_IMAGES = {
-    src: "/images/portfolio/matrimoni/",
-    filter: "matrimoni",
+const GALLERY_IMAGES = {
+    src: "/images/portfolio/gallery/",
+    filter: "gallery",
     extension: ".jpg",
-    number: 16,
+    number: 45,
 } as const
 
 export const PORTFOLIO_IMAGES = [
-    ...Array.from({ length: MATRIMONI_IMAGES.number }, (_, index) => ({
-        src: `${MATRIMONI_IMAGES.src}${MATRIMONI_IMAGES.filter}-${index + 1}${MATRIMONI_IMAGES.extension}`,
-        filter: MATRIMONI_IMAGES.filter,
+    ...Array.from({ length: GALLERY_IMAGES.number }, (_, index) => ({
+        src: `${GALLERY_IMAGES.src}${GALLERY_IMAGES.filter}-${index + 1}${GALLERY_IMAGES.extension}`,
+        filter: GALLERY_IMAGES.filter,
     })),
 ];

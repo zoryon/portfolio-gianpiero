@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <section className="overflow-hidden sm:px-5">
-      <div className="relative text-background">
+      <div className="relative text-foreground">
         <div
           className="w-full h-[calc(100vh-90px)] 
           sm:h-[calc(100vh-90px-20px)] relative -z-10"
@@ -109,14 +109,14 @@ export default function Home() {
             {/* bottom left - title and paragraph */}
             <section className="absolute left-0 bottom-2 sm:bottom-14">
               <div className="small-title"></div>
-              <Title title={"weddings"} />
+              <Title title={"photography"} />
               <p
                 className="max-w-[400px] text-xs mt-2 mb-10 sm:mb-16 tracking-tight 
                 leading-[1.4rem] font-bold"
               >
-                &quot;Lascia che il tuo giorno speciale diventi un&apos;
-                opera d&apos;arte senza tempo.
-                Fotografia e video per matrimoni che raccontano emozioni&quot;
+                &quot;Non fai solo una fotografia con una macchina fotografica.
+                Tu metti nella fotografia tutte le immagini che hai visto, 
+                i libri che hai letto, la musica che hai sentito, e le persone che hai amato&quot;
               </p>
               <AnimatedButton
                 text="richiedi preventivo"

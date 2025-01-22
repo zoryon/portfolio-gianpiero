@@ -5,8 +5,8 @@ const SectionBottombar = ({ array }: { array: BottombarLink[] }) => {
     return (
         <div
             className="w-full h-[80px] fixed xl:absolute left-0 bottom-0
-            bg-secondary flex justify-center items-center gap-8
-            text-background"
+            bg-background flex justify-center items-center gap-8
+            text-foreground"
         >
             {array.map((link, i) => {
                 return (

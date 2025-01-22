@@ -64,7 +64,7 @@ const Service = ({
 
                 {/* price button */}
                 <Button
-                    variant={"default"}
+                    variant={"outline"}
                     className="!rounded-none mt-6 md:mt-12 text-xs py-5 cursor-default"
                 >
                     <span className="text-zinc-500">Prezzo: </span>

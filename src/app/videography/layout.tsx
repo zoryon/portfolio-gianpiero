@@ -2,8 +2,8 @@ import { YouTubeThumbnailContextProvider } from "@/contexts/youtube-thumbnail.co
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Eternal - Wedding Videography",
-    description: "Video matrimoni, Firenze.",
+    title: "Gianpiero Spata  Videography",
+    description: "Video, Firenze.",
 }
 
 const VideographyPage = ({

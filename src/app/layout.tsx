@@ -19,8 +19,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Eternal Weddings",
-  description: "Fotografie & Video per Matrimoni a Firenze.",
+  title: "Gianpiero Spata",
+  description: "Fotografie & Video a Firenze.",
 };
 
 export default function RootLayout({

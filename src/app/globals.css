@@ -65,6 +65,7 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --subtle: 200, 2%, 60%;
+    --section: 0 0% 10%;
   }
 }
 
@@ -73,7 +74,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark;
   }
   .small-title {
     @apply uppercase text-[0.7rem] leading-[0.9rem] font-bold;
@@ -85,7 +86,7 @@ body {
     @apply text-subtle;
   }
   .scroll-area {
-    @apply overflow-hidden lg:overflow-y-scroll overflow-x-hidden;
+    @apply overflow-hidden lg:overflow-y-scroll overflow-x-hidden bg-section;
     scrollbar-width: thin; /* firefox */
     scrollbar-color: #888 #f1f1f1;
   }
@@ -101,5 +102,9 @@ body {
   .scroll-area::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
+  }
+  .contact-form Input, 
+  .contact-form TextArea {
+    @apply bg-secondary;
   }
 }
