@@ -18,7 +18,7 @@ const PhotographyPage = () => {
     )
 }
 
-const PortfolioItems = React.memo(() => {
+const PortfolioItems = () => {
     const { enableGallery } = useGalleryContext();
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -88,7 +88,7 @@ const PortfolioItems = React.memo(() => {
             );
         })
     );
-});
+};
 
 
 export default PhotographyPage;
