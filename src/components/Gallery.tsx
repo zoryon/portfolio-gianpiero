@@ -1,35 +1,46 @@
-"use client"
+"use client";
 
-import { useGalleryContext } from "@/contexts/gallery.context"
-import { PORTFOLIO_IMAGES } from "@/lib/portfolio-constants"
-import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useGalleryContext } from "@/contexts/gallery.context";
+import { PORTFOLIO_IMAGES } from "@/lib/portfolio-constants";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
 const Gallery = () => {
     const { disableGallery, selectedImage } = useGalleryContext();
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
 
-    // set correct index when an image is selected
+    // Preload images
+    useEffect(() => {
+        const preloadImages = PORTFOLIO_IMAGES.map((img) => img.src);
+        preloadImages.forEach((src) => {
+            const img = new window.Image();
+            img.src = src;
+        });
+        setPreloadedImages(preloadImages);
+    }, []);
+
+    // Set correct index when an image is selected
     useEffect(() => {
         if (selectedImage) {
-            const index = PORTFOLIO_IMAGES.findIndex((img) => img.src === selectedImage)
+            const index = PORTFOLIO_IMAGES.findIndex((img) => img.src === selectedImage);
             if (index !== -1) {
-                setCurrentIndex(index)
+                setCurrentIndex(index);
             }
         }
     }, [selectedImage]);
 
     function handleNext() {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % PORTFOLIO_IMAGES.length)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % PORTFOLIO_IMAGES.length);
     }
 
     function handlePrev() {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? PORTFOLIO_IMAGES.length - 1 : prevIndex - 1
-        )
+        );
     }
 
     const swipeHandlers = useSwipeable({
@@ -42,17 +53,17 @@ const Gallery = () => {
     const buttonVariants = {
         hidden: (direction: "left" | "right") => ({
             opacity: 0,
-            x: direction === "left" ? "-100%" : "100%", // start off-screen
+            x: direction === "left" ? "-100%" : "100%", // Start off-screen
         }),
         visible: {
             opacity: 1,
-            x: "0%", // move to the center
+            x: "0%", // Move to the center
             transition: {
                 duration: 0.5,
                 ease: "easeInOut",
             },
         },
-    }
+    };
 
     return (
         <motion.div
@@ -72,7 +83,7 @@ const Gallery = () => {
         >
             {selectedImage && (
                 <>
-                    {/* left button */}
+                    {/* Left button */}
                     <motion.button
                         onClick={handlePrev}
                         className="w-20 h-20 absolute left-5 top-1/2
@@ -88,10 +99,10 @@ const Gallery = () => {
                         <i className="fa-regular fa-arrow-left" />
                     </motion.button>
 
-                    {/* centered image */}
+                    {/* Centered image */}
                     <Image
                         alt="selected image"
-                        src={PORTFOLIO_IMAGES[currentIndex].src}
+                        src={preloadedImages[currentIndex]} // Use preloaded images
                         width={2000}
                         height={2000}
                         unoptimized={false}
@@ -99,7 +110,7 @@ const Gallery = () => {
                         h-auto sm:h-screen max-h-screen object-cover"
                     />
 
-                    {/* next button */}
+                    {/* Next button */}
                     <motion.button
                         onClick={handleNext}
                         className="w-20 h-20 absolute right-5 top-1/2
@@ -115,7 +126,7 @@ const Gallery = () => {
                         <i className="fa-regular fa-arrow-right" />
                     </motion.button>
 
-                    {/* top right exit button */}
+                    {/* Top right exit button */}
                     <div
                         onClick={() => disableGallery()}
                         className="fixed top-1 right-6 text-3xl
@@ -128,6 +139,6 @@ const Gallery = () => {
             )}
         </motion.div>
     );
-}
+};
 
 export default Gallery;
