@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import { PORTFOLIO_IMAGES } from "@/lib/portfolio-constants";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useGalleryContext } from "@/contexts/gallery.context";
 
@@ -18,7 +18,7 @@ const PhotographyPage = () => {
     )
 }
 
-const PortfolioItems = () => {
+const PortfolioItems = React.memo(() => {
     const { enableGallery } = useGalleryContext();
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -88,7 +88,7 @@ const PortfolioItems = () => {
             );
         })
     );
-};
+});
 
 
 export default PhotographyPage;

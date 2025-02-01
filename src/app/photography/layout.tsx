@@ -17,7 +17,7 @@ const PhotographyPage = ({
             {children}
             <Gallery />
         </GalleryContextProvider>
-    )
+    );
 }
 
 export default PhotographyPage
