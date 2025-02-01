@@ -11,37 +11,43 @@ import { useSwipeable } from "react-swipeable";
 const Gallery = () => {
     const { disableGallery, selectedImage } = useGalleryContext();
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
 
-    // Preload images
+    // Preload adjacent images whenever currentIndex changes
     useEffect(() => {
-        const preloadImages = PORTFOLIO_IMAGES.map((img) => img.src);
-        preloadImages.forEach((src) => {
-            const img = new window.Image();
-            img.src = src;
-        });
-        setPreloadedImages(preloadImages);
-    }, []);
+        const preloadImage = (index: number) => {
+            const img = PORTFOLIO_IMAGES[index];
+            if (!img) return;
+            
+            // Create optimized URL matching Next.js Image component's request
+            const params = new URLSearchParams();
+            params.set('url', encodeURIComponent(img.src));
+            params.set('w', '2000');
+            params.set('q', '75');
+            const optimizedUrl = `/_next/image?${params.toString()}`;
+            
+            const imgElement = new window.Image();
+            imgElement.src = optimizedUrl;
+        };
 
-    // Set correct index when an image is selected
+        // Preload next and previous images
+        const nextIndex = (currentIndex + 1) % PORTFOLIO_IMAGES.length;
+        const prevIndex = currentIndex === 0 ? PORTFOLIO_IMAGES.length - 1 : currentIndex - 1;
+        
+        preloadImage(nextIndex);
+        preloadImage(prevIndex);
+    }, [currentIndex]);
+
+    // Set initial index when an image is selected
     useEffect(() => {
         if (selectedImage) {
             const index = PORTFOLIO_IMAGES.findIndex((img) => img.src === selectedImage);
-            if (index !== -1) {
-                setCurrentIndex(index);
-            }
+            if (index !== -1) setCurrentIndex(index);
         }
     }, [selectedImage]);
 
-    function handleNext() {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % PORTFOLIO_IMAGES.length);
-    }
-
-    function handlePrev() {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? PORTFOLIO_IMAGES.length - 1 : prevIndex - 1
-        );
-    }
+    // Navigation handlers
+    const handleNext = () => setCurrentIndex(prev => (prev + 1) % PORTFOLIO_IMAGES.length);
+    const handlePrev = () => setCurrentIndex(prev => (prev === 0 ? PORTFOLIO_IMAGES.length - 1 : prev - 1));
 
     const swipeHandlers = useSwipeable({
         onSwipedLeft: handleNext,
@@ -53,15 +59,12 @@ const Gallery = () => {
     const buttonVariants = {
         hidden: (direction: "left" | "right") => ({
             opacity: 0,
-            x: direction === "left" ? "-100%" : "100%", // Start off-screen
+            x: direction === "left" ? "-100%" : "100%",
         }),
         visible: {
             opacity: 1,
-            x: "0%", // Move to the center
-            transition: {
-                duration: 0.5,
-                ease: "easeInOut",
-            },
+            x: "0%",
+            transition: { duration: 0.5, ease: "easeInOut" },
         },
     };
 
@@ -76,14 +79,10 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: selectedImage ? 1 : 0 }}
             exit={{ opacity: 0 }}
-            transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
         >
             {selectedImage && (
                 <>
-                    {/* Left button */}
                     <motion.button
                         onClick={handlePrev}
                         className="w-20 h-20 absolute left-5 top-1/2
@@ -99,18 +98,16 @@ const Gallery = () => {
                         <i className="fa-regular fa-arrow-left" />
                     </motion.button>
 
-                    {/* Centered image */}
                     <Image
-                        alt="selected image"
-                        src={preloadedImages[currentIndex]} // Use preloaded images
+                        alt="Selected image"
+                        src={PORTFOLIO_IMAGES[currentIndex].src}
                         width={2000}
                         height={2000}
-                        unoptimized={false}
+                        priority
                         className="w-screen sm:w-auto max-w-[100vw]
                         h-auto sm:h-screen max-h-screen object-cover"
                     />
 
-                    {/* Next button */}
                     <motion.button
                         onClick={handleNext}
                         className="w-20 h-20 absolute right-5 top-1/2
@@ -126,9 +123,8 @@ const Gallery = () => {
                         <i className="fa-regular fa-arrow-right" />
                     </motion.button>
 
-                    {/* Top right exit button */}
                     <div
-                        onClick={() => disableGallery()}
+                        onClick={disableGallery}
                         className="fixed top-1 right-6 text-3xl
                         cursor-pointer px-4 py-1.5 hover:text-subtle
                         duration-300"
