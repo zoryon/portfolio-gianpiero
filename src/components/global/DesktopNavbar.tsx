@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { getLinkProps } from "@/lib/navbar-utils";
 
 export const LeftDesktopNavbar = () => {
     return (
@@ -37,7 +38,10 @@ const NavbarLinks = ({ position }: NavbarLinksProps) => {
 
     return (
         linksToRender.map((link, i) => {
-            const isActive = link.path === pathname;
+            const { href, textColor, isBlocked } = getLinkProps(
+                link.label,
+                pathname,
+            );
             const shouldAnimate = i === hoveredIndex;
 
             return (
@@ -47,14 +51,14 @@ const NavbarLinks = ({ position }: NavbarLinksProps) => {
                     justify-center items-center"
                 >
                     <Link
-                        href={link.path}
+                        href={href}
                         className={cn(
                             `w-full h-[45px] uppercase text-[0.7rem] leading-[0.9rem]
                             font-bold flex justify-center items-center px-2
                             duration-200 relative`,
-                            isActive ? "text-subtle" : "text-foreground"
+                            textColor
                         )}
-                        onMouseEnter={() => setHoveredIndex(i)}
+                        onMouseEnter={() => isBlocked ? null : setHoveredIndex(i)}
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
                         {link.label}

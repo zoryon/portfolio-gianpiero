@@ -1,6 +1,7 @@
 "use client"
 
 import { NAVBAR_LINKS } from "@/lib/navbar-constants";
+import { getLinkProps } from "@/lib/navbar-utils";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -60,7 +61,10 @@ const NavbarLinks = ({
 
     return (
         NAVBAR_LINKS.map((link) => {
-            const isActive = pathname === link.path;
+            const { href, textColor, isBlocked } = getLinkProps(
+                link.label,
+                pathname,
+            );
 
             return (
                 <li 
@@ -69,13 +73,13 @@ const NavbarLinks = ({
                     justify-start items-center z-50"
                 >
                     <Link 
-                        href={link.path} 
+                        href={href} 
                         className={cn( 
                             `w-full h-full small-title flex justify-start
                             items-center px-3 hover:text-subtle duration-200`,
-                            isActive ? "text-subtle" : "text-white"
+                            textColor
                         )}
-                        onClick={() => closeMenuFn(!closeState)}
+                        onClick={() => isBlocked ? null : closeMenuFn(!closeState)}
                     >
                         {link.label}
                     </Link>

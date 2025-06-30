@@ -24,3 +24,7 @@ export const NAVBAR_LINKS = [
         path: "/contatti",
     },
 ] as const;
+
+export const BLOCKED_LINKS = [
+    "videography"
+];

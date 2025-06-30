@@ -7,6 +7,9 @@ import { VIDEOS_ARRAY } from "@/lib/videos-constants";
 const VideographyPage = () => {
     const { selectedVideoId } = useYouTubeThumbnailContext();
 
+    // TODO: TO DELETE, FOR NOW IT'S SAVED AS BACKUP
+    return null;
+
     return (
         <section className="w-full">
             {/* main video row to navigate trough videos */}

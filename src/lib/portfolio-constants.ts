@@ -2,7 +2,7 @@ const GALLERY_IMAGES = {
     src: "/images/portfolio/gallery/",
     filter: "gallery",
     extension: ".jpg",
-    number: 45,
+    number: 46,
 } as const
 
 export const PORTFOLIO_IMAGES = [
